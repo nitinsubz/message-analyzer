@@ -144,7 +144,7 @@ export async function POST(request: NextRequest) {
     }
     
     const SQL = await initSqlJs({
-      wasmBinary: new Uint8Array(wasmBinary),
+      wasmBinary: wasmBinary.buffer as ArrayBuffer,
     });
 
     // Load the database
