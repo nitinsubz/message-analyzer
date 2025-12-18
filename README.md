@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💬 Chat Analyzer
+
+A web application to analyze your macOS Messages chat.db file and get detailed statistics about your messages.
+
+## Features
+
+- 📊 **Comprehensive Statistics**: Total messages, sent/received counts, unique contacts
+- 📈 **Visual Analytics**: Daily message activity charts and hourly distribution graphs
+- 👥 **Contact Analysis**: See who you text the most with message counts
+- 📅 **Time-based Insights**: Understand your messaging patterns over time
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 20.x or later
+- npm or yarn
+
+### Installation
+
+1. Navigate to the project directory:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd chat-analyzer
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+## How to Use
 
-To learn more about Next.js, take a look at the following resources:
+1. **Find your chat.db file**:
+   - Open Finder
+   - Press `Cmd + Shift + G` (Go to Folder)
+   - Enter: `~/Library/Messages/`
+   - Copy the `chat.db` file
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Upload the file**:
+   - Drag and drop the `chat.db` file onto the upload area, or
+   - Click "Select File" and browse to your chat.db file
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **View your statistics**:
+   - After uploading, click "Analyze"
+   - Wait for the analysis to complete
+   - Explore your message statistics, charts, and top contacts
 
-## Deploy on Vercel
+## Privacy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- All file processing happens on your local machine (or server)
+- No data is sent to external services
+- The chat.db file is processed in memory and not stored permanently
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Technical Details
+
+- Built with Next.js 16 and TypeScript
+- Uses sql.js for SQLite database parsing
+- Recharts for data visualization
+- Tailwind CSS for styling
+
+## Troubleshooting
+
+If you encounter issues:
+
+1. **File not found**: Make sure you're copying the correct `chat.db` file from `~/Library/Messages/`
+2. **Analysis fails**: Ensure the file is not corrupted and is a valid SQLite database
+3. **Large files**: Very large chat.db files may take longer to process
+
+## License
+
+MIT
